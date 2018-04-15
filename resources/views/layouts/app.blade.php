@@ -27,9 +27,25 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'FORUM') }}
                 </a>
-                <a class="navbar-brand" href="/threads">
-                    all threads
-                </a>
+                <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/threads"> all threads</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Channels
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                                @foreach(App\Channel::all() as $channel)
+
+                                <a class="dropdown-item" href="/threads/{{$channel->slug}}">{{ $channel->name }}</a>
+
+                                @endforeach
+
+                            </div>
+                        </li>
+                </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

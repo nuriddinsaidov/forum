@@ -40,8 +40,29 @@ class CreateThreadsTest extends TestCase
     /** @test */
    /* function a_thread_requires_a_title()
     {
-        $this->signIn();
+        $this->withExceptionHandling()->signIn();
 
-        $this->post('/');
+        $thread = make('App\Thread', ['title' => null]);
+       // dd(session()->all());
+         $this->post('/Threads',$thread->toArray())
+             ->assertSessionHasErrors('title');
+     //   $this-> ('title');
+    }*/
+
+    /** @test */
+   /* function a_thread_requires_a_body()
+    {
+
+        $this->publishThread(['body' => null])
+            ->assertSessionHasErrors('body');
+    }*/
+
+   /* public function publishThread($overrides = [])
+    {
+        $this->withExceptionHandling()->signIn();
+
+        $thread = make('App\Thread', $overrides);
+        var_dump($thread->toArray());
+        return $this->post('/Threads',$thread->toArray());
     }*/
 }
