@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/threads"> all threads</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/threads/create">New Thread</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Channels
@@ -45,6 +48,7 @@
 
                             </div>
                         </li>
+
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
