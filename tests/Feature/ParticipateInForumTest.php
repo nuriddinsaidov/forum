@@ -18,7 +18,7 @@ class ParticipateInForumTest extends TestCase
         ->assertRedirect('/login');
     }
 
-   /** @test */
+  // /** @test */
    function an_authenticated_user_may_participate_in_forum_threads()
    {
        $this->signIn();
@@ -26,8 +26,7 @@ class ParticipateInForumTest extends TestCase
        $thread = create('App\Thread');
 
        $reply = make('App\Reply');
-       $this->post($thread->path().'/replies', $reply->toArray());
-
+       $this->post($thread->path() . '/replies', $reply->toArray());
        $this->get($thread->path())->assertSee($reply->body);
 
    }
