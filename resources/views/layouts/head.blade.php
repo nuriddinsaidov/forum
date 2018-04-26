@@ -24,6 +24,13 @@
 <style>
     body { padding-bottom:100px; }
     .level { display:flex; align-items:center; }
-    .flex { flex:1; }
+    .flex { flex:1;display:inline-block; }
+    .reply_count{
+        float:right;
+        font-weight:bold;
+    }
+    .row-card{
+        margin:15px;
+    }
 
 </style>

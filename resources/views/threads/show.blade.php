@@ -3,12 +3,27 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 col-md-offset-2">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('profiles',$thread->creator) }}"> {{ $thread->creator->name }} </a>
-                        posted:
-                        {{ $thread->title }}</div>
+
+                        <div class="level">
+                            <span class="flex">
+                                <a href="{{ route('profiles',$thread->creator) }}"> {{ $thread->creator->name }} </a>
+                                posted:
+                            {{ $thread->title }}
+
+                            </span>
+
+                            <form action="{{ $thread->path() }}" method="POST">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+
+                            <button type="submit" class="btn btn-link">Delete Thread</button>
+                            </form>
+                        </div>
+                    </div>
+
 
                     <div class="card-body">
                         <article>
@@ -50,15 +65,15 @@
 
             <div class="col-md-4">
                 <div class="card">
-                   <div class="card-body">
-                       <p>
-                           This Thread was published
-                           {{ $thread->created_at->diffForHumans() }} by
-                           <a href="#">{{ $thread->creator->name }}</a>, and currently
-                           has {{ $thread->replies_count }}
-                           {{   str_plural('comment', $thread->replies_count) }}.
-                       </p>
-                   </div>
+                    <div class="card-body">
+                        <p>
+                            This Thread was published
+                            {{ $thread->created_at->diffForHumans() }} by
+                            <a href="#">{{ $thread->creator->name }}</a>, and currently
+                            has {{ $thread->replies_count }}
+                            {{   str_plural('comment', $thread->replies_count) }}.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
