@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Thread extends Model
 {
+    use RecordActivity;
     /**
      * Don't auto-apply mass assignment protection.
      *
@@ -23,15 +24,15 @@ class Thread extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('replyCount', function ($builder){
+        static::addGlobalScope('replyCount', function ($builder) {
             $builder->withCount('replies');
         });
 
-        static::deleting(function ($thread){
+        static::deleting(function ($thread) {
             $thread->replies()->delete();
         });
-    }
 
+    }
 
     public function path()
     {

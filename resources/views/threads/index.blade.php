@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        @foreach($threads as $thread)
+        @forelse($threads as $thread)
         <div class="row row-card">
 
                 <div class="col-md-8">
@@ -42,6 +42,8 @@
                 <br>
 
         </div>
-        @endforeach
+        @empty
+            <p>There are no relevant results at this time</p>
+        @endforelse
     </div>
 @endsection
