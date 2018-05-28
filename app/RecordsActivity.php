@@ -4,9 +4,12 @@
 namespace App;
 
 
-trait RecordActivity
+trait RecordsActivity
 {
-    protected static function bootRecordsActivity()
+    /**
+     * Boot the trait.
+     */
+    public static function bootRecordsActivity()
     {
         if (auth()->guest()) return;
 
@@ -27,10 +30,10 @@ trait RecordActivity
     }
 
     /**
-    +     * Fetch all model events that require activity recording.
-    +     *
-    +     * @return array
-    +     */
+         * Fetch all model events that require activity recording.
+         *
+         * @return array
+         */
     protected static function getActivitiesToRecord()
     {
         return ['created'];
